@@ -20,7 +20,7 @@ var cors = require("cors");
 
 
 app.use(cors({
-  origin: ['http://localhost:3000'],
+  origin: ['https://frontend-beta-lime.vercel.app'],
   credentials:true
 }));
 
