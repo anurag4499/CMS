@@ -41,7 +41,11 @@ The College Management System is a MERN Stack-based system with three different 
 Add one admin using postman and then you can login into admin panel and add student and faculty from admin section.
 
 <img width="672" alt="Loginapi" src="https://github.com/user-attachments/assets/50f09bcd-723c-45c6-aa81-ad27fc0d1c45">
-you can also add all data of admin from postman
+
+
+you can also add all data of admin from postman otherwise from the Client side
+
+
 <img width="680" alt="addDetails" src="https://github.com/user-attachments/assets/05bd72a1-f81f-41db-a205-f81a55c53b44">
 
 
