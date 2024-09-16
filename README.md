@@ -40,3 +40,4 @@ The College Management System is a MERN Stack-based system with three different 
 
 Add one admin using postman and then you can login into admin panel and add student and faculty from admin section.
 
+

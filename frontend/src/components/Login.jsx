@@ -9,19 +9,13 @@ const Login = () => {
   const [selected, setSelected] = useState("Student");
   const { register, handleSubmit } = useForm();
   const onSubmit =async (data) => {
-    // console.log(data.password);
+ 
     
     if (data.loginid !== "" && data.password !== "") {
       const headers = {
         "Content-Type": "application/json",
       };
 
-      // console.log(data.loginid);
-      
-      //  await  axios
-      //   .post(`http://localhost:5000/api/${selected.toLowerCase()}/auth/login`, data, {
-      //     // headers: headers,
-      //   })
         await axios
         .post(`http://localhost:5000/api/${selected.toLowerCase()}/auth/login`, data, {
               headers: headers,
