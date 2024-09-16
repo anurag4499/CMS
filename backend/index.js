@@ -11,23 +11,12 @@ var cors = require("cors");
 //   origin: ['http://localhost:3000'],
 // };
 // app.use(cors(corsOption));
+app.use(cors());
 
-// app.use(cors());
-
-// app.use(cors({
-//   origin: process.env.FRONTEND_API_LINK
-// }));
-
-
-app.use(cors({
-  origin: ['https://frontend-beta-lime.vercel.app'],
-  credentials:true
-}));
-
-app.use(express.json()); //to convert request data to json
+app.use(express.json()); 
 
 app.get("/", (req, res) => {
-  res.send("Hello 👋 I am Working Fine 🚀")
+  res.send("Hello")
 })
 
 app.use('/media', express.static(path.join(__dirname, 'media')));

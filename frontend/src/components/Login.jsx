@@ -4,7 +4,6 @@ import { FiLogIn } from "react-icons/fi";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
-import { baseApiURL } from "../baseUrl";
 const Login = () => {
   const navigate = useNavigate();
   const [selected, setSelected] = useState("Student");
@@ -24,7 +23,7 @@ const Login = () => {
       //     // headers: headers,
       //   })
         await axios
-        .post(`https://server-brown-delta-41.vercel.app/api/${selected.toLowerCase()}/auth/login`, data, {
+        .post(`http://localhost:5000/api/${selected.toLowerCase()}/auth/login`, data, {
               headers: headers,
             })
         .then((response) => {

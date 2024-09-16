@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { baseApiURL } from "../../../baseUrl";
 import { FiUpload } from "react-icons/fi";
 
 const AddAdmin = () => {
