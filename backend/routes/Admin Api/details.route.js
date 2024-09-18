@@ -9,7 +9,7 @@ router.post("/getDetails", getDetails);
 
 
 router.post("/addDetails", upload.single("profile"), addDetails);
-// router.post("/addDetails", upload.single("profile"), addDetails);
+router.post("/addDetails", upload.single("profile"), addDetails);
 
 router.put("/updateDetails/:id", upload.single("profile"), updateDetails);
 
