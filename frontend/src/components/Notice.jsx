@@ -38,7 +38,7 @@ const Notice = () => {
       "Content-Type": "application/json",
     };
     axios
-      .get(`http://localhost:5000/api/notice/getNotice`, data, {
+      .get(`${baseApiURL()}/notice/getNotice`, data, {
         headers: headers,
       })
       .then((response) => {
@@ -69,7 +69,7 @@ const Notice = () => {
       "Content-Type": "application/json",
     };
     axios
-      .get(`http://localhost:5000/api/notice/getNotice`, data, {
+      .get(`${baseApiURL()}/notice/getNotice`, data, {
         headers: headers,
       })
       .then((response) => {
@@ -92,7 +92,7 @@ const Notice = () => {
       "Content-Type": "application/json",
     };
     axios
-      .post(`http://localhost:5000/api/notice/addNotice`, data, {
+      .post(`${baseApiURL()}/notice/addNotice`, data, {
         headers: headers,
       })
       .then((response) => {
@@ -117,7 +117,7 @@ const Notice = () => {
       "Content-Type": "application/json",
     };
     axios
-      .delete(`http://localhost:5000/api/notice/deleteNotice/${id}`, {
+      .delete(`${baseApiURL()}/notice/deleteNotice/${id}`, {
         headers: headers,
       })
       .then((response) => {
@@ -141,7 +141,7 @@ const Notice = () => {
       "Content-Type": "application/json",
     };
     axios
-      .put(`http://localhost:5000/api/notice/updateNotice/${id}`, data, {
+      .put(`${baseApiURL()}/notice/updateNotice/${id}`, data, {
         headers: headers,
       })
       .then((response) => {

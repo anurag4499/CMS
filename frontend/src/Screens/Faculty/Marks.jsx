@@ -21,7 +21,7 @@ const Marks = () => {
     };
     axios
       .post(
-        `http://localhost:5000/api/student/details/getDetails`,
+        `${baseApiURL()}/student/details/getDetails`,
         { branch: selected.branch, semester: selected.semester },
         { headers }
       )
@@ -54,7 +54,7 @@ const Marks = () => {
     };
     axios
       .post(
-        `http://localhost:5000/api/marks/addMarks`,
+        `${baseApiURL()}/marks/addMarks`,
         {
           enrollmentNo: enrollment,
           [selected.examType]: {
@@ -83,7 +83,7 @@ const Marks = () => {
       "Content-Type": "application/json",
     };
     axios
-      .get(`http://localhost:5000/api/branch/getBranch`, { headers })
+      .get(`${baseApiURL()}/branch/getBranch`, { headers })
       .then((response) => {
         if (response.data.success) {
           setBranch(response.data.branches);
@@ -100,7 +100,7 @@ const Marks = () => {
   const getSubjectData = () => {
     toast.loading("Loading Subjects");
     axios
-      .get(`http://localhost:5000/api/subject/getSubject`)
+      .get(`${baseApiURL()}/subject/getSubject`)
       .then((response) => {
         toast.dismiss();
         if (response.data.success) {

@@ -53,7 +53,7 @@ const EditFaculty = () => {
       formData.append("profile", file);
     }
     axios
-      .put(`http://localhost:5000/api/faculty/details/updateDetails/${id}`, formData, {
+      .put(`${baseApiURL()}/faculty/details/updateDetails/${id}`, formData, {
         headers: headers,
       })
       .then((response) => {
@@ -80,7 +80,7 @@ const EditFaculty = () => {
     };
     axios
       .post(
-        `http://localhost:5000/api/faculty/details/getDetails`,
+        `${baseApiURL()}/faculty/details/getDetails`,
         { employeeId: search },
         { headers }
       )

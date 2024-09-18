@@ -23,7 +23,7 @@ const Timetable = () => {
       "Content-Type": "application/json",
     };
     axios
-      .get(`http://localhost:5000/api/branch/getBranch`, { headers })
+      .get(`${baseApiURL()}/branch/getBranch`, { headers })
       .then((response) => {
         if (response.data.success) {
           setBranch(response.data.branches);
@@ -55,7 +55,7 @@ const Timetable = () => {
     formData.append("type", "timetable");
     formData.append("timetable", file);
     axios
-      .post(`http://localhost:5000/api/timetable/addTimetable`, formData, {
+      .post(`${baseApiURL()}/timetable/addTimetable`, formData, {
         headers: headers,
       })
       .then((response) => {

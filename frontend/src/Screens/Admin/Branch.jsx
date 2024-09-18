@@ -16,7 +16,7 @@ const Branch = () => {
 
   const getBranchHandler = () => {
     axios
-      .get(`http://localhost:5000/api/branch/getBranch`)
+      .get(`${baseApiURL()}/branch/getBranch`)
       .then((response) => {
         if (response.data.success) {
           setBranch(response.data.branches);
@@ -36,7 +36,7 @@ const Branch = () => {
       "Content-Type": "application/json",
     };
     axios
-      .post(`http://localhost:5000/api/branch/addBranch`, data, {
+      .post(`${baseApiURL()}/branch/addBranch`, data, {
         headers: headers,
       })
       .then((response) => {
@@ -63,7 +63,7 @@ const Branch = () => {
         "Content-Type": "application/json",
       };
       axios
-        .delete(`http://localhost:5000/api/branch/deleteBranch/${id}`, {
+        .delete(`${baseApiURL()}/branch/deleteBranch/${id}`, {
           headers: headers,
         })
         .then((response) => {

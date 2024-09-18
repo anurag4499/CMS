@@ -41,7 +41,7 @@ const Student = () => {
     };
     axios
       .post(
-        `http://localhost:5000/api/student/details/getDetails`,
+        `${baseApiURL()}/student/details/getDetails`,
         { enrollmentNo: search },
         { headers }
       )

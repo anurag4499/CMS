@@ -20,7 +20,7 @@ const Profile = () => {
     };
     axios
       .post(
-        `http://localhost:5000/api/${router.state.type}/details/getDetails`,
+        `${baseApiURL()}/${router.state.type}/details/getDetails`,
         { enrollmentNo: router.state.loginid },
         {
           headers: headers,
@@ -53,7 +53,7 @@ const Profile = () => {
     };
     axios
       .post(
-        `http://localhost:5000/api/student/auth/login`,
+        `${baseApiURL()}/student/auth/login`,
         { loginid: router.state.loginid, password: password.current },
         {
           headers: headers,
@@ -78,7 +78,7 @@ const Profile = () => {
     };
     axios
       .put(
-        `http://localhost:5000/api/student/auth/update/${id}`,
+        `${baseApiURL()}/student/auth/update/${id}`,
         { loginid: router.state.loginid, password: password.new },
         {
           headers: headers,

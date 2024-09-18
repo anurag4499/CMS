@@ -16,7 +16,7 @@ const Timetable = () => {
       };
       axios
         .get(
-          `http://localhost:5000/api/timetable/getTimetable`,
+          `${baseApiURL()}/timetable/getTimetable`,
           { semester: userData.semester, branch: userData.branch },
           {
             headers: headers,

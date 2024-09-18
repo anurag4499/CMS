@@ -39,7 +39,7 @@ const Home = () => {
       "Content-Type": "application/json",
     };
     axios
-      .get(`http://localhost:5000/api/student/details/count`, {
+      .get(`${baseApiURL()}/student/details/count`, {
         headers: headers,
       })
       .then((response) => {
@@ -62,7 +62,7 @@ const Home = () => {
       "Content-Type": "application/json",
     };
     axios
-      .get(`http://localhost:5000/api/faculty/details/count`, {
+      .get(`${baseApiURL()}/faculty/details/count`, {
         headers: headers,
       })
       .then((response) => {

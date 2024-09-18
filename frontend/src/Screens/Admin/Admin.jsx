@@ -3,6 +3,7 @@ import Heading from "../../components/Heading";
 import EditAdmin from "./Admin/EditAdmin";
 import AddAdmin from "./Admin/AddAdmin";
 
+
 const Admin = () => {
   const [selected, setSelected] = useState("add");
 

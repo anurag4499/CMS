@@ -46,7 +46,7 @@ const EditAdmin = () => {
     }
     axios
       // .put(`http://localhost:5000/api/admin/details/updateDetails/${id}`, formData, {
-      .put(`https://server-brown-delta-41.vercel.app/api/admin/details/updateDetails/${id}`, formData, {
+      .put(`${baseApiURL()}/admin/details/updateDetails/${id}`, formData, {
         headers: headers,
       })
       .then((response) => {
@@ -74,7 +74,7 @@ const EditAdmin = () => {
     };
     axios
       .post(
-        `https://server-brown-delta-41.vercel.app/api/admin/details/getDetails`,
+        `${baseApiURL()}/admin/details/getDetails`,
         { employeeId: search },
         { headers }
       )

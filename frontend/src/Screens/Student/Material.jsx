@@ -12,7 +12,7 @@ const Material = () => {
   useEffect(() => {
     toast.loading("Loading Subjects");
     axios
-      .get(`http://localhost:5000/api/subject/getSubject`)
+      .get(`${baseApiURL()}/subject/getSubject`)
       .then((response) => {
         toast.dismiss();
         if (response.data.success) {
@@ -33,7 +33,7 @@ const Material = () => {
     };
     axios
       .post(
-        `http://localhost:5000/api/material/getMaterial`,
+        `${baseApiURL()}/material/getMaterial`,
         { subject: selected },
         { headers }
       )

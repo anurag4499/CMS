@@ -17,7 +17,7 @@ const Subjects = () => {
 
   const getSubjectHandler = () => {
     axios
-      .get(`http://localhost:5000/api/subject/getSubject`)
+      .get(`${baseApiURL()}/subject/getSubject`)
       .then((response) => {
         if (response.data.success) {
           setSubject(response.data.subject);
@@ -36,7 +36,7 @@ const Subjects = () => {
       "Content-Type": "application/json",
     };
     axios
-      .post(`http://localhost:5000/api/subject/addSubject`, data, {
+      .post(`${baseApiURL()}/subject/addSubject`, data, {
         headers: headers,
       })
       .then((response) => {
@@ -61,7 +61,7 @@ const Subjects = () => {
       "Content-Type": "application/json",
     };
     axios
-      .delete(`http://localhost:5000/api/subject/deleteSubject/${id}`, {
+      .delete(`${baseApiURL()}/subject/deleteSubject/${id}`, {
         headers: headers,
       })
       .then((response) => {

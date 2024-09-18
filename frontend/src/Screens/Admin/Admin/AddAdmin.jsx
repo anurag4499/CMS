@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { FiUpload } from "react-icons/fi";
+import { baseApiURL } from "../baseUrl";
 
 const AddAdmin = () => {
   const [file, setFile] = useState();
@@ -41,7 +42,7 @@ const AddAdmin = () => {
     formData.append("profile", file);
     axios
       // .post(`http://localhost:5000/api/admin/details/addDetails`, formData, {
-      .post(`https://server-brown-delta-41.vercel.app/api/admin/details/addDetails`, formData, {
+      .post(`${baseApiURL()}/admin/details/addDetails`, formData, {
         headers: headers,
       })
       .then((response) => {
@@ -49,7 +50,7 @@ const AddAdmin = () => {
         if (response.data.success) {
           toast.success(response.data.message);
           axios
-            .post(`https://server-brown-delta-41.vercel.app/api/admin/auth/register`, {
+            .post(`${baseApiURL()}/admin/auth/register`, {
               loginid: data.employeeId,
               password: data.employeeId,
             })

@@ -24,7 +24,7 @@ const AddStudent = () => {
       "Content-Type": "application/json",
     };
     axios
-      .get(`http://localhost:5000/api/branch/getBranch`, { headers })
+      .get(`${baseApiURL()}/branch/getBranch`, { headers })
       .then((response) => {
         if (response.data.success) {
           setBranch(response.data.branches);
@@ -67,7 +67,7 @@ const AddStudent = () => {
     formData.append("type", "profile");
     formData.append("profile", file);
     axios
-      .post(`http://localhost:5000/api/student/details/addDetails`, formData, {
+      .post(`${baseApiURL()}/student/details/addDetails`, formData, {
         headers: headers,
       })
       .then((response) => {
@@ -75,7 +75,7 @@ const AddStudent = () => {
         if (response.data.success) {
           toast.success(response.data.message);
           axios
-            .post(`http://localhost:5000/api/student/auth/register`, {
+            .post(`${baseApiURL()}/student/auth/register`, {
               loginid: data.enrollmentNo,
               password: data.enrollmentNo,
             })
