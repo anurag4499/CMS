@@ -9,25 +9,27 @@ router.post("/getDetails", getDetails);
 
 
 router.post("/addDetails", upload.single("profile"), 
+async (req,res)=>{
+    console.log(req.file.path)
 
-function (req, res) {
-    cloudinary.uploader.upload(req.file.path, function (err, result){
-      if(err) {
-        console.log(err);
-        return res.status(500).json({
-          success: false,
-          message: "Error"
-        })
-      }
-  
-      res.status(200).json({
-        success: true,
-        message:"Uploaded!",
-        data: result
-      })
-    })
-  },
 
+    const x= await cloudinary.uploader.upload(req.file.path)
+    console.log("cloudianry",x)
+
+    const newvar = new Image({Image_Url:x.secure_url});
+    newvar.save().then(() => console.log('kaam ho gaya'));
+    
+    // Delete example_file.txt 
+     fs.unlink((req.file.path),
+     function(err){ 
+     if (err) console.log(err); 
+     else console.log("\nDeleted file");
+   }) 
+   res.json({
+    msg:"file uploaded",
+    your_url:{image_url:x.secure_url}
+   })
+},
 addDetails);
 // router.post("/addDetails", upload.single("profile"), addDetails);
 
