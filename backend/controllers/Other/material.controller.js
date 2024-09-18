@@ -1,4 +1,6 @@
 const Material = require("../../models/Other/material.model");
+const { uploadToCloudinary } = require('../../utils/uploder.js');
+
 
 const getMaterial = async (req, res) => {
     try {
@@ -17,10 +19,11 @@ const getMaterial = async (req, res) => {
 
 const addMaterial = async (req, res) => {
     let { faculty, subject, title } = req.body;
+    const result = await uploadToCloudinary(req.file.buffer, 'uploads');
     try {
         await Material.create({
             faculty,
-            link: req.file.filename,
+            link: result.url,
             subject,
             title,
         });
@@ -29,6 +32,8 @@ const addMaterial = async (req, res) => {
             message: "Material Added!",
         };
         res.json(data);
+        console.log();
+        
     } catch (error) {
         console.error(error.message);
         console.log(error)
@@ -37,6 +42,7 @@ const addMaterial = async (req, res) => {
 }
 
 const updateMaterial = async (req, res) => {
+    // const result = await uploadToCloudinary(req.file.buffer, 'uploads');
     let { faculty, link, subject, title } = req.body;
     try {
         let material = await Material.findByIdAndUpdate(req.params.id, {

@@ -56,7 +56,7 @@ const Timetable = () => {
       {timetable && (
         <img
           className="mt-8 rounded-lg shadow-md w-[70%] mx-auto"
-          src={"http://localhost:5000/media/"+ timetable}
+          src={timetable}
           alt="timetable"
         />
       )}

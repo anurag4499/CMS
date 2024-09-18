@@ -350,7 +350,7 @@ const EditStudent = () => {
           {!previewImage && data.profile && (
             <div className="w-full flex justify-center items-center">
               <img
-                src={"http://localhost:5000/media/" + data.profile}
+                src={data.profile}
                 alt="student"
                 className="h-36"
               />

@@ -1,4 +1,5 @@
 const Timetable = require("../../models/Other/timetable.model");
+const { uploadToCloudinary } = require('../../utils/uploder.js');
 
 const getTimetable = async (req, res) => {
     try {
@@ -15,12 +16,13 @@ const getTimetable = async (req, res) => {
 }
 
 const addTimetable = async (req, res) => {
+    const result = await uploadToCloudinary(req.file.buffer, 'uploads');
     let { semester, branch } = req.body;
     try {
         let timetable = await Timetable.findOne({ semester, branch });
         if (timetable) {
             await Timetable.findByIdAndUpdate(timetable._id, {
-                semester, branch, link: req.file.filename
+                semester, branch, link: result.url
             });
             const data = {
                 success: true,
@@ -29,7 +31,7 @@ const addTimetable = async (req, res) => {
             res.json(data);
         } else {
             await Timetable.create({
-                semester, branch, link: req.file.filename
+                semester, branch, link: result.url
             });
             const data = {
                 success: true,

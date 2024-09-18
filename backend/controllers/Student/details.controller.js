@@ -1,6 +1,8 @@
 const studentDetails = require("../../models/Students/details.model.js")
+const { uploadToCloudinary } = require('../../utils/uploder.js');
 
 const getDetails = async (req, res) => {
+    
     try {
         let user = await studentDetails.find(req.body);
         if (!user) {
@@ -21,6 +23,7 @@ const getDetails = async (req, res) => {
 }
 
 const addDetails = async (req, res) => {
+    const result = await uploadToCloudinary(req.file.buffer, 'uploads');
     try {
         let user = await studentDetails.findOne({
             enrollmentNo: req.body.enrollmentNo,
@@ -31,7 +34,7 @@ const addDetails = async (req, res) => {
                 message: "Student With This Enrollment Already Exists",
             });
         }
-        user = await studentDetails.create({ ...req.body, profile: req.file.filename });
+        user = await studentDetails.create({ ...req.body, profile: result.url });
         const data = {
             success: true,
             message: "Student Details Added!",
@@ -46,10 +49,11 @@ const addDetails = async (req, res) => {
 
 
 const updateDetails = async (req, res) => {
+    const result = await uploadToCloudinary(req.file.buffer, 'uploads');
     try {
         let user;
         if (req.file) {
-            user = await studentDetails.findByIdAndUpdate(req.params.id, { ...req.body, profile: req.file.filename });
+            user = await studentDetails.findByIdAndUpdate(req.params.id, { ...req.body, profile: result.url });
         } else {
             user = await studentDetails.findByIdAndUpdate(req.params.id, req.body);
         }

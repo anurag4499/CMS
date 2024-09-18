@@ -1,4 +1,5 @@
 const facultyDetails = require("../../models/Faculty/details.model.js")
+const { uploadToCloudinary } = require('../../utils/uploder.js');
 
 const getDetails = async (req, res) => {
     try {
@@ -21,6 +22,7 @@ const getDetails = async (req, res) => {
 }
 
 const addDetails = async (req, res) => {
+    const result = await uploadToCloudinary(req.file.buffer, 'uploads');
     try {
         let user = await facultyDetails.findOne({ employeeId: req.body.employeeId });
         if (user) {
@@ -29,7 +31,7 @@ const addDetails = async (req, res) => {
                 message: "Faculty With This EmployeeId Already Exists",
             });
         }
-        user = await facultyDetails.create({ ...req.body, profile: req.file.filename });
+        user = await facultyDetails.create({ ...req.body, profile: result.url });
         const data = {
             success: true,
             message: "Faculty Details Added!",
@@ -43,10 +45,11 @@ const addDetails = async (req, res) => {
 }
 
 const updateDetails = async (req, res) => {
+    const result = await uploadToCloudinary(req.file.buffer, 'uploads');
     try {
         let user;
         if (req.file) {
-            user = await facultyDetails.findByIdAndUpdate(req.params.id, { ...req.body, profile: req.file.filename });
+            user = await facultyDetails.findByIdAndUpdate(req.params.id, { ...req.body, profile: result.url });
         } else {
             user = await facultyDetails.findByIdAndUpdate(req.params.id, req.body);
         }
