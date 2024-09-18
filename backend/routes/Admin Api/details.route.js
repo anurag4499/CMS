@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { getDetails, addDetails, updateDetails, deleteDetails } = require("../../controllers/Admin/details.controller.js");
 const upload = require("../../middlewares/multer.middleware.js")
-const cloudinary = require("../../utils/cloudinary.js").default;
+const cloudinary = require("../../utils/cloudinary.js");
 
 
 router.post("/getDetails", getDetails);
