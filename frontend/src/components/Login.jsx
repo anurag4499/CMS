@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { baseApiURL } from "../baseUrl";
 import { useForm } from "react-hook-form";
 import { FiLogIn } from "react-icons/fi";
 import axios from "axios";
@@ -15,9 +16,11 @@ const Login = () => {
       const headers = {
         "Content-Type": "application/json",
       };
-
+     console.log("heelo");
+     
         await axios
-        .post(`https://server-brown-delta-41.vercel.app/api/${selected.toLowerCase()}/auth/login`, data, {
+        // .post(`https://server-brown-delta-41.vercel.app/api/${selected.toLowerCase()}/auth/login`, data, {
+        .post(`${baseApiURL()}/${selected.toLowerCase()}/auth/login`, data, {
               headers: headers,
             })
         .then((response) => {
