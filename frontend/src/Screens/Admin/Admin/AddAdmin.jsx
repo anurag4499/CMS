@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { FiUpload } from "react-icons/fi";
-import { baseApiURL } from "../baseUrl";
+import { baseApiURL } from "../../../baseUrl";
+// import { baseApiURL } from "../baseUrl";
 
 const AddAdmin = () => {
   const [file, setFile] = useState();
