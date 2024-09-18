@@ -17,7 +17,7 @@ const Login = () => {
       };
 
         await axios
-        .post(`http://localhost:5000/api/${selected.toLowerCase()}/auth/login`, data, {
+        .post(`https://server-brown-delta-41.vercel.app/api/${selected.toLowerCase()}/auth/login`, data, {
               headers: headers,
             })
         .then((response) => {

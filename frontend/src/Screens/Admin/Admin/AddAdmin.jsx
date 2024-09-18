@@ -40,7 +40,8 @@ const AddAdmin = () => {
     formData.append("type", "profile");
     formData.append("profile", file);
     axios
-      .post(`http://localhost:5000/api/admin/details/addDetails`, formData, {
+      // .post(`http://localhost:5000/api/admin/details/addDetails`, formData, {
+      .post(`https://server-brown-delta-41.vercel.app/api/admin/details/addDetails`, formData, {
         headers: headers,
       })
       .then((response) => {
@@ -48,7 +49,7 @@ const AddAdmin = () => {
         if (response.data.success) {
           toast.success(response.data.message);
           axios
-            .post(`http://localhost:5000/api/Admin/auth/register`, {
+            .post(`https://server-brown-delta-41.vercel.app/api/Admin/auth/register`, {
               loginid: data.employeeId,
               password: data.employeeId,
             })

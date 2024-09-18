@@ -11,7 +11,16 @@ var cors = require("cors");
 //   origin: ['http://localhost:3000'],
 // };
 // app.use(cors(corsOption));
-app.use(cors());
+
+app.use(cors(
+  {
+    origin:["https://frontend-beta-lime.vercel.app"],
+    methods:["POST", "GET", "PUT", "DELETE"],
+    credentials:true
+  }
+))
+
+// app.use(cors());
 
 app.use(express.json()); 
 
