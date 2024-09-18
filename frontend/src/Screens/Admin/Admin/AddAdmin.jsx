@@ -49,7 +49,7 @@ const AddAdmin = () => {
         if (response.data.success) {
           toast.success(response.data.message);
           axios
-            .post(`https://server-brown-delta-41.vercel.app/api/Admin/auth/register`, {
+            .post(`https://server-brown-delta-41.vercel.app/api/admin/auth/register`, {
               loginid: data.employeeId,
               password: data.employeeId,
             })

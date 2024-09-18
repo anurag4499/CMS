@@ -12,6 +12,7 @@ const Login = () => {
   const onSubmit =async (data) => {
  
      console.log(baseApiURL());
+     
     if (data.loginid !== "" && data.password !== "") {
       const headers = {
         "Content-Type": "application/json",

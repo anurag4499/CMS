@@ -25,7 +25,7 @@ const AddFaculty = () => {
       "Content-Type": "application/json",
     };
     axios
-      .get(`http://localhost:5000/api/branch/getBranch`, { headers })
+      .get(`https://server-brown-delta-41.vercel.app/api/branch/getBranch`, { headers })
       .then((response) => {
         if (response.data.success) {
           setBranch(response.data.branches);
@@ -69,7 +69,7 @@ const AddFaculty = () => {
     formData.append("type", "profile");
     formData.append("profile", file);
     axios
-      .post(`http://localhost:5000/api/faculty/details/addDetails`, formData, {
+      .post(`https://server-brown-delta-41.vercel.app/api/faculty/details/addDetails`, formData, {
         headers: headers,
       })
       .then((response) => {
@@ -77,7 +77,7 @@ const AddFaculty = () => {
         if (response.data.success) {
           toast.success(response.data.message);
           axios
-            .post(`http://localhost:5000/api/faculty/auth/register`, {
+            .post(`https://server-brown-delta-41.vercel.app/api/faculty/auth/register`, {
               loginid: data.employeeId,
               password: data.employeeId,
             })
