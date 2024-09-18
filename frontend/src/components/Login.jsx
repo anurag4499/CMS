@@ -10,7 +10,7 @@ const Login = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit =async (data) => {
  
-    
+     console.log("heelo");
     if (data.loginid !== "" && data.password !== "") {
       const headers = {
         "Content-Type": "application/json",
