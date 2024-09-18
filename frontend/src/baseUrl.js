@@ -1,7 +1,4 @@
 export const baseApiURL = () => {
-  return  "http://localhost:5000/api" ;
+  return  "https://server-brown-delta-41.vercel.app/api" ;
 };
 
-export const mediaURL=()=>{
-  return  "media" ;
-}
