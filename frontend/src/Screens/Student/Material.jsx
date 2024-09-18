@@ -100,7 +100,7 @@ const Material = () => {
                     onClick={() =>
                       item.link &&
                       window.open(
-                        `http://localhost:5000/media/${item.link}`
+                        item.link
                       )
                     }
                   >
