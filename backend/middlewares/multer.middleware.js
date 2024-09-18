@@ -2,9 +2,9 @@ const multer = require("multer");
 const path = require("path");
 
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, "./media");
-    },
+    // destination: function (req, file, cb) {
+    //     cb(null, "./media");
+    // },
     filename: function (req, file, cb) {
         let filename = ""
         if (req.body?.type === "timetable") {
